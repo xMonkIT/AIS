@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Practicum_1.Domain.Order">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_id" Hidden="true" />
+      <Field Name="_orderItems" Hidden="true" />
+      <Method Name="Clear" Hidden="true" />
+      <Method Name="IsValidId" Hidden="true" />
+      <Method Name="Order" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAEAAAQAAABAAAAAAAAAQAQAAAAAAQRAAAA=</HashCode>
+      <FileName>Domain\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_orderItems" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Practicum_1.Domain.OrderItem">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_count" Hidden="true" />
+      <Field Name="_price" Hidden="true" />
+      <Field Name="_rateVAT" Hidden="true" />
+      <Field Name="_specification" Hidden="true" />
+      <Method Name="IsValidCount" Hidden="true" />
+      <Method Name="IsValidPrice" Hidden="true" />
+      <Method Name="IsValidRateVAT" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AoAAAAAICQCAABQAAEAAAAQAAAAAQCAAAQCAAAAgAAA=</HashCode>
+      <FileName>Domain\OrderItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_specification" />
+      <Property Name="Specification" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Practicum_1.Domain.OrderRepository">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_orders" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\OrderRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_orders" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Practicum_1.Domain.Specification">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <Members>
+      <Field Name="_name" Hidden="true" />
+      <Method Name="IsValidName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Specification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
