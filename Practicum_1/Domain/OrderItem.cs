@@ -12,6 +12,9 @@ namespace Practicum_1.Domain
         private decimal _rateVAT;
         private Specification _specification;
 
+        public delegate int test(OrderItem item);
+        public event test GetIndex;
+
         /// <summary>
         /// Получает цену за единицу товара в записи накладной
         /// </summary>
@@ -129,14 +132,13 @@ namespace Practicum_1.Domain
             return value > 0.0M;
         }
 
-        public int Number
+        public int Number => GetIndex?.Invoke(this) + 1 ?? -1;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            get { return 0; }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
