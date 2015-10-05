@@ -5,10 +5,12 @@ namespace Practicum_1.Domain
 {
     class OrderRepository
     {
+        private int _nextOrderId;
+
         /// <summary>
         /// Получает список накладных
         /// </summary>
-        public IEnumerable<Order> Orders { get; } = new List<Order>();
+        public IList<Order> Orders { get; } = new List<Order>();
 
         /// <summary>
         /// Получает сумму по всем накладным
@@ -17,5 +19,9 @@ namespace Practicum_1.Domain
         {
             get { return Orders.Sum(x => x.Total); }
         }
+
+        public Order New() => new Order(GetNextOrderId());
+
+        private int GetNextOrderId() => ++_nextOrderId;
     }
 }

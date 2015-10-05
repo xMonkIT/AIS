@@ -15,12 +15,15 @@ namespace Practicum_1.Domain
         private int _id;
 
         /// <summary>
-        /// Создаёт новый экземпляр товарной накладной
+        /// Создаёт новый экземпляр накладной
         /// </summary>
-        public Order() {
-            _id = 1;
+        /// <param name="id">Номер накладной</param>
+        public Order(int id) {
+            _id = id;
             Created = DateTime.Today;
         }
+
+        public Order() : this(1) { }
 
         public OrderItem New()
         {
