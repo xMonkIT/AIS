@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderGenMainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
@@ -42,7 +46,6 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSearch = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -55,16 +58,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bClose = new System.Windows.Forms.Button();
             this.tbOrderTotal = new System.Windows.Forms.TextBox();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specificationDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rateVATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalVATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalWithVATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,8 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bvOrderItems)).BeginInit();
             this.bvOrderItems.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -159,20 +162,45 @@
             this.dgvOrderItems.AllowUserToOrderColumns = true;
             this.dgvOrderItems.AutoGenerateColumns = false;
             this.dgvOrderItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.totalDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.specificationDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn,
+            this.specificationDataGridViewComboBoxColumn,
             this.countDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
             this.rateVATDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
             this.totalVATDataGridViewTextBoxColumn,
-            this.totalWithVATDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn});
+            this.totalWithVATDataGridViewTextBoxColumn});
             this.dgvOrderItems.DataSource = this.orderItemBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderItems.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrderItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderItems.Location = new System.Drawing.Point(3, 41);
             this.dgvOrderItems.Name = "dgvOrderItems";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvOrderItems.RowHeadersVisible = false;
             this.dgvOrderItems.RowHeadersWidth = 50;
             this.dgvOrderItems.Size = new System.Drawing.Size(838, 273);
             this.dgvOrderItems.TabIndex = 1;
@@ -184,7 +212,6 @@
             this.bvOrderItems.CountItem = this.bindingNavigatorCountItem;
             this.bvOrderItems.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bvOrderItems.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSearch,
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -231,12 +258,6 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Удалить";
-            // 
-            // toolStripSearch
-            // 
-            this.toolStripSearch.Name = "toolStripSearch";
-            this.toolStripSearch.Size = new System.Drawing.Size(100, 25);
-            this.toolStripSearch.TextChanged += new System.EventHandler(this.toolStripSearch_TextChanged);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -337,7 +358,7 @@
             // 
             // tbOrderTotal
             // 
-            this.tbOrderTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Total", true));
+            this.tbOrderTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.tbOrderTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbOrderTotal.Enabled = false;
             this.tbOrderTotal.Location = new System.Drawing.Point(163, 3);
@@ -345,66 +366,78 @@
             this.tbOrderTotal.Size = new System.Drawing.Size(608, 20);
             this.tbOrderTotal.TabIndex = 2;
             // 
-            // totalDataGridViewTextBoxColumn
+            // orderBindingSource
             // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orderBindingSource.DataSource = typeof(Practicum_1.Domain.Order);
             // 
-            // priceDataGridViewTextBoxColumn
+            // numberDataGridViewTextBoxColumn
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.numberDataGridViewTextBoxColumn.HeaderText = "№";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // specificationDataGridViewTextBoxColumn
+            // specificationDataGridViewComboBoxColumn
             // 
-            this.specificationDataGridViewTextBoxColumn.DataPropertyName = "Specification";
-            this.specificationDataGridViewTextBoxColumn.HeaderText = "Specification";
-            this.specificationDataGridViewTextBoxColumn.Name = "specificationDataGridViewTextBoxColumn";
+            this.specificationDataGridViewComboBoxColumn.DataPropertyName = "Specification";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specificationDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.specificationDataGridViewComboBoxColumn.FillWeight = 64.70071F;
+            this.specificationDataGridViewComboBoxColumn.HeaderText = "Наименование";
+            this.specificationDataGridViewComboBoxColumn.Name = "specificationDataGridViewComboBoxColumn";
+            this.specificationDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specificationDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // countDataGridViewTextBoxColumn
             // 
             this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
+            this.countDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
             // rateVATDataGridViewTextBoxColumn
             // 
             this.rateVATDataGridViewTextBoxColumn.DataPropertyName = "RateVAT";
-            this.rateVATDataGridViewTextBoxColumn.HeaderText = "RateVAT";
+            this.rateVATDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.rateVATDataGridViewTextBoxColumn.HeaderText = "Ставка НДС";
             this.rateVATDataGridViewTextBoxColumn.Name = "rateVATDataGridViewTextBoxColumn";
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalVATDataGridViewTextBoxColumn
             // 
             this.totalVATDataGridViewTextBoxColumn.DataPropertyName = "TotalVAT";
-            this.totalVATDataGridViewTextBoxColumn.HeaderText = "TotalVAT";
+            this.totalVATDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.totalVATDataGridViewTextBoxColumn.HeaderText = "Сумма НДС";
             this.totalVATDataGridViewTextBoxColumn.Name = "totalVATDataGridViewTextBoxColumn";
             this.totalVATDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalWithVATDataGridViewTextBoxColumn
             // 
             this.totalWithVATDataGridViewTextBoxColumn.DataPropertyName = "TotalWithVAT";
-            this.totalWithVATDataGridViewTextBoxColumn.HeaderText = "TotalWithVAT";
+            this.totalWithVATDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.totalWithVATDataGridViewTextBoxColumn.HeaderText = "Сумма с НДС";
             this.totalWithVATDataGridViewTextBoxColumn.Name = "totalWithVATDataGridViewTextBoxColumn";
             this.totalWithVATDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // orderItemBindingSource
             // 
+            this.orderItemBindingSource.AllowNew = true;
             this.orderItemBindingSource.DataSource = typeof(Practicum_1.Domain.OrderItem);
-            this.orderItemBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.orderItemBindingSource_ListChanged);
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(Practicum_1.Domain.Order);
             // 
             // OrderGenMainForm
             // 
@@ -426,8 +459,8 @@
             this.bvOrderItems.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,17 +492,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bClose;
         private System.Windows.Forms.TextBox tbOrderTotal;
-        private System.Windows.Forms.ToolStripTextBox toolStripSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specificationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rateVATDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalVATDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalWithVATDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource orderItemBindingSource;
         private System.Windows.Forms.BindingSource orderBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn specificationDataGridViewComboBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rateVATDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalVATDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalWithVATDataGridViewTextBoxColumn;
     }
 }
 

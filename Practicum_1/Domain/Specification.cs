@@ -22,9 +22,8 @@ namespace Practicum_1.Domain
         /// </summary>
         /// <param name="value">Название спецификации</param>
         /// <returns>Истина, если аргумент является корректным названием спецификации товара</returns>
-        private bool IsValidName(string value)
-        {
-            return !string.IsNullOrWhiteSpace(value);
-        }
+        private static bool IsValidName(string value) => !string.IsNullOrWhiteSpace(value);
+
+        public override string ToString() => _name;
     }
 }

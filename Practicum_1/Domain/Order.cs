@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms.VisualStyles;
+using Practicum_1.Annotations;
 
 namespace Practicum_1.Domain
 {
-    internal class Order
+    internal class Order : INotifyPropertyChanged
     {
         private readonly IList<OrderItem> _orderItems = new List<OrderItem>();
         private int _id;
@@ -18,6 +22,24 @@ namespace Practicum_1.Domain
             Created = DateTime.Today;
         }
 
+        public OrderItem New()
+        {
+            var _item = new OrderItem();
+            _item.PropertyChanged += ItemChanged;
+            _item.GetIndex += GetIndex;
+            return _item;
+        }
+
+        private int GetIndex(OrderItem item)
+        {
+            return _orderItems.IndexOf(item);
+        }
+
+        private void ItemChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(Total));
+        }
+
         /// <summary>
         /// Получает или устанавливает номер накладной
         /// </summary>
@@ -27,6 +49,7 @@ namespace Practicum_1.Domain
             set
             {
                 Contract.Requires(IsValidId(value), "Номер накладной должен быть положительным числом");
+                if (_id == value) return;
                 _id = value;
             }
         }
@@ -80,6 +103,14 @@ namespace Practicum_1.Domain
             Contract.Requires(OrderItems != null);
             Contract.Ensures(OrderItems.Count == 0);
             OrderItems.Clear();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

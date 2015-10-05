@@ -1,8 +1,11 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.ComponentModel;
+using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
+using Practicum_1.Annotations;
 
 namespace Practicum_1.Domain
 {
-    internal class OrderItem
+    internal class OrderItem : INotifyPropertyChanged
     {
         private decimal _count;
         private decimal _price;
@@ -10,11 +13,12 @@ namespace Practicum_1.Domain
         private Specification _specification;
 
         /// <summary>
-        /// Получает сумму по записи в накладной
+        /// Получает цену за единицу товара в записи накладной
         /// </summary>
-        public decimal Total
+        public Specification Specification
         {
-            get { return _count*_price; }
+            get { return _specification; }
+            set { _specification = value; }
         }
 
         /// <summary>
@@ -27,16 +31,13 @@ namespace Practicum_1.Domain
             {
                 Contract.Requires(IsValidPrice(value));
                 Contract.Ensures(_price == value);
+                if (_price == value) return;
                 _price = value;
+                OnPropertyChanged(nameof(Total));
+                OnPropertyChanged(nameof(TotalVAT));
+                OnPropertyChanged(nameof(TotalWithVAT));
+                
             }
-        }
-
-        /// <summary>
-        /// Получает цену за единицу товара в записи накладной
-        /// </summary>
-        public Specification Specification {
-            get { return _specification; }
-            set { _specification = value; }
         }
 
         /// <summary>
@@ -49,8 +50,20 @@ namespace Practicum_1.Domain
             {
                 Contract.Requires(IsValidCount(value));
                 Contract.Ensures(_count == value);
+                if (_count == value) return;
                 _count = value;
+                OnPropertyChanged(nameof(Total));
+                OnPropertyChanged(nameof(TotalVAT));
+                OnPropertyChanged(nameof(TotalWithVAT));
             }
+        }
+
+        /// <summary>
+        /// Получает сумму по записи в накладной
+        /// </summary>
+        public decimal Total
+        {
+            get { return _count * _price; }
         }
 
         /// <summary>
@@ -63,7 +76,10 @@ namespace Practicum_1.Domain
             {
                 Contract.Requires(IsValidRateVAT(value));
                 Contract.Ensures(_rateVAT == value);
+                if (_rateVAT == value) return;
                 _rateVAT = value;
+                OnPropertyChanged(nameof(TotalVAT));
+                OnPropertyChanged(nameof(TotalWithVAT));
             }
         }
 
@@ -114,8 +130,14 @@ namespace Practicum_1.Domain
         }
 
         public int Number
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             get { return 0; }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

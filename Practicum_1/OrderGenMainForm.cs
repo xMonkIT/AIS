@@ -1,8 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using Practicum_1.Domain;
 
 namespace Practicum_1
@@ -18,31 +17,16 @@ namespace Practicum_1
 
         private void OrderGenMainForm_Load(object sender, EventArgs e)
         {
-            Contract.Ensures(orderBindingSource.DataSource == _order);
-            Contract.Ensures(orderItemBindingSource.DataSource == _order.OrderItems);
+            Contract.Ensures(Equals(orderBindingSource.DataSource, _order));
+            Contract.Ensures(Equals(orderItemBindingSource.DataSource, _order.OrderItems));
             orderBindingSource.DataSource = _order;
             orderItemBindingSource.DataSource = _order.OrderItems;
-        }
-
-        private void orderItemBindingSource_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            Contract.Requires(tbOrderTotal.DataBindings.Count > 0);
-            tbOrderTotal.DataBindings[0].ReadValue();
+            orderItemBindingSource.AddingNew += (obj, args) => args.NewObject = _order.New();
         }
 
         private void bClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void toolStripSearch_TextChanged(object sender, EventArgs e)
-        {
-            var text = sender.ToString();
-            var dataTable = dgvOrderItems.DataSource as DataTable;
-            if (dataTable != null)
-                dataTable.DefaultView.RowFilter = String.IsNullOrEmpty(text)
-                    ? ""
-                    : String.Format("Specification = '{0}'", text);
         }
     }
 }
