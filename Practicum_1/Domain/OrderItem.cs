@@ -11,8 +11,8 @@ namespace Practicum_1.Domain
         private decimal _price;
         private decimal _rateVAT;
 
-        public delegate int test(OrderItem item);
-        public event test GetIndex;
+        public delegate int OrderItemToInt(OrderItem item);
+        public event OrderItemToInt OnGetIndex;
 
         /// <summary>
         /// Получает спецификацию товара в записи накладной
@@ -59,10 +59,7 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает сумму по записи в накладной
         /// </summary>
-        public decimal Total
-        {
-            get { return _count * _price; }
-        }
+        public decimal Total => _count * _price;
 
         /// <summary>
         /// Получает ставку НДС в записи накладной
@@ -127,7 +124,7 @@ namespace Practicum_1.Domain
             return value > 0.0M;
         }
 
-        public int Number => GetIndex?.Invoke(this) + 1 ?? -1;
+        public int Number => OnGetIndex?.Invoke(this) + 1 ?? -1;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

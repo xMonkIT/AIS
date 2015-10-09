@@ -27,7 +27,7 @@ namespace Practicum_1.Domain
         {
             var item = new OrderItem();
             item.PropertyChanged += ItemChanged;
-            item.GetIndex += GetIndex;
+            item.OnGetIndex += GetIndex;
             return item;
         }
 
