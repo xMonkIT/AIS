@@ -10,19 +10,14 @@ namespace Practicum_1.Domain
         private decimal _count;
         private decimal _price;
         private decimal _rateVAT;
-        private Specification _specification;
 
         public delegate int test(OrderItem item);
         public event test GetIndex;
 
         /// <summary>
-        /// Получает цену за единицу товара в записи накладной
+        /// Получает спецификацию товара в записи накладной
         /// </summary>
-        public Specification Specification
-        {
-            get { return _specification; }
-            set { _specification = value; }
-        }
+        public Specification Specification { get; set; }
 
         /// <summary>
         /// Получает цену за единицу товара в записи накладной

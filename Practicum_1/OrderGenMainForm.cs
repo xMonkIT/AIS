@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
-using System.Globalization;
 using Practicum_1.Domain;
 
 namespace Practicum_1
@@ -23,11 +22,7 @@ namespace Practicum_1
             orderBindingSource.DataSource = _orderRepository.Orders;
             orderBindingSource.AddingNew += (obj, args) => args.NewObject = _orderRepository.New();
             orderBindingSource.AddNew();
-        }
-
-        private void bClose_Click(object sender, EventArgs e)
-        {
-            Close();
+            specificationBindingSource.DataSource = _orderRepository.Specifications;
         }
 
         private void orderBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -35,6 +30,16 @@ namespace Practicum_1
             Contract.Ensures(Equals(orderItemBindingSource.DataSource, (orderBindingSource.Current as Order).OrderItems));
             orderItemBindingSource.DataSource = (orderBindingSource.Current as Order)?.OrderItems;
             orderItemBindingSource.AddingNew += (obj, args) => args.NewObject = (orderBindingSource.Current as Order)?.New();
+        }
+
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void dgvOrderItems_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            
         }
     }
 }

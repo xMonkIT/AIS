@@ -7,6 +7,14 @@ namespace Practicum_1.Domain
     {
         private int _nextOrderId;
 
+        public IList<Specification> Specifications { get; } = new List<Specification>
+            (new[] {
+                new Specification("Хлеб"),
+                new Specification("Молоко"),
+                new Specification("Колбаса"),
+                new Specification("Чебурек")
+            });
+
         /// <summary>
         /// Получает список накладных
         /// </summary>
@@ -15,10 +23,7 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает сумму по всем накладным
         /// </summary>
-        public decimal Total
-        {
-            get { return Orders.Sum(x => x.Total); }
-        }
+        public decimal Total => Orders.Sum(x => x.Total);
 
         public Order New() => new Order(GetNextOrderId());
 

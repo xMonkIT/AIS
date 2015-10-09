@@ -4,14 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
-using System.Windows.Forms.VisualStyles;
 using Practicum_1.Annotations;
 
 namespace Practicum_1.Domain
 {
     internal class Order : INotifyPropertyChanged
     {
-        private readonly IList<OrderItem> _orderItems = new List<OrderItem>();
         private int _id;
 
         /// <summary>
@@ -27,15 +25,15 @@ namespace Practicum_1.Domain
 
         public OrderItem New()
         {
-            var _item = new OrderItem();
-            _item.PropertyChanged += ItemChanged;
-            _item.GetIndex += GetIndex;
-            return _item;
+            var item = new OrderItem();
+            item.PropertyChanged += ItemChanged;
+            item.GetIndex += GetIndex;
+            return item;
         }
 
         private int GetIndex(OrderItem item)
         {
-            return _orderItems.IndexOf(item);
+            return OrderItems.IndexOf(item);
         }
 
         private void ItemChanged(object sender, PropertyChangedEventArgs e)
@@ -70,7 +68,7 @@ namespace Practicum_1.Domain
             get
             {
                 Contract.Requires(OrderItems != null, "Коллекция записей накладной должна быть создана.");
-                return _orderItems.Sum(x => x.Total);
+                return OrderItems.Sum(x => x.Total);
             }
         }
 
@@ -82,14 +80,14 @@ namespace Practicum_1.Domain
             get
             {
                 Contract.Requires(OrderItems != null, "Коллекция записей накладной должна быть создана.");
-                return _orderItems.Sum(x => x.TotalWithVAT);
+                return OrderItems.Sum(x => x.TotalWithVAT);
             }
         }
 
         /// <summary>
         /// Получает список записей в накладной
         /// </summary>
-        public IList<OrderItem> OrderItems => _orderItems;
+        public IList<OrderItem> OrderItems { get; } = new List<OrderItem>();
 
         /// <summary>
         /// Возвращает признак, что заданный аргументом номер накладной имеет правильное значение
