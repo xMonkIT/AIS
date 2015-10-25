@@ -26,11 +26,11 @@
     <Members>
       <Field Name="_count" Hidden="true" />
       <Field Name="_price" Hidden="true" />
-      <Field Name="_rateVAT" Hidden="true" />
+      <Field Name="_rateVat" Hidden="true" />
       <Field Name="_specification" Hidden="true" />
       <Method Name="IsValidCount" Hidden="true" />
       <Method Name="IsValidPrice" Hidden="true" />
-      <Method Name="IsValidRateVAT" Hidden="true" />
+      <Method Name="IsValidRateVat" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AoAAAAAICQCAABQAIEAAAAQAgAAAQCAAAQCAAAAgAAA=</HashCode>

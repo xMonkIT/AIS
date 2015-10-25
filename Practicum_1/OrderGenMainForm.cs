@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
 using Practicum_1.Domain;
@@ -7,7 +8,16 @@ namespace Practicum_1
 {
     public partial class OrderGenMainForm : Form
     {
-        readonly OrderRepository _orderRepository = new OrderRepository();
+        private readonly OrderRepository _orderRepository = new OrderRepository();
+
+        private IList<Specification> _specifications { get; } = new List<Specification>
+            (new[]
+            {
+                new Specification("Хлеб"),
+                new Specification("Молоко"),
+                new Specification("Колбаса"),
+                new Specification("Чебурек")
+            });
 
         public OrderGenMainForm()
         {
@@ -22,7 +32,7 @@ namespace Practicum_1
             orderBindingSource.DataSource = _orderRepository.Orders;
             orderBindingSource.AddingNew += (obj, args) => args.NewObject = _orderRepository.New();
             orderBindingSource.AddNew();
-            specificationBindingSource.DataSource = _orderRepository.Specifications;
+            specificationBindingSource.DataSource = _specifications;
         }
 
         private void orderBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -35,11 +45,6 @@ namespace Practicum_1
         private void bClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void dgvOrderItems_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            
         }
     }
 }

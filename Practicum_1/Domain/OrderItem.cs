@@ -9,7 +9,7 @@ namespace Practicum_1.Domain
     {
         private decimal _count;
         private decimal _price;
-        private decimal _rateVAT;
+        private decimal _rateVat;
 
         public delegate int OrderItemToInt(OrderItem item);
         public event OrderItemToInt OnGetIndex;
@@ -32,8 +32,8 @@ namespace Practicum_1.Domain
                 if (_price == value) return;
                 _price = value;
                 OnPropertyChanged(nameof(Total));
-                OnPropertyChanged(nameof(TotalVAT));
-                OnPropertyChanged(nameof(TotalWithVAT));
+                OnPropertyChanged(nameof(TotalVat));
+                OnPropertyChanged(nameof(TotalWithVat));
                 
             }
         }
@@ -51,8 +51,8 @@ namespace Practicum_1.Domain
                 if (_count == value) return;
                 _count = value;
                 OnPropertyChanged(nameof(Total));
-                OnPropertyChanged(nameof(TotalVAT));
-                OnPropertyChanged(nameof(TotalWithVAT));
+                OnPropertyChanged(nameof(TotalVat));
+                OnPropertyChanged(nameof(TotalWithVat));
             }
         }
 
@@ -64,34 +64,34 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает ставку НДС в записи накладной
         /// </summary>
-        public decimal RateVAT
+        public decimal RateVat
         {
-            get { return _rateVAT; }
+            get { return _rateVat; }
             set
             {
-                Contract.Requires(IsValidRateVAT(value));
-                Contract.Ensures(_rateVAT == value);
-                if (_rateVAT == value) return;
-                _rateVAT = value;
-                OnPropertyChanged(nameof(TotalVAT));
-                OnPropertyChanged(nameof(TotalWithVAT));
+                Contract.Requires(IsValidRateVat(value));
+                Contract.Ensures(_rateVat == value);
+                if (_rateVat == value) return;
+                _rateVat = value;
+                OnPropertyChanged(nameof(TotalVat));
+                OnPropertyChanged(nameof(TotalWithVat));
             }
         }
 
         /// <summary>
         /// Получает сумму НДС в записи накладной
         /// </summary>
-        public decimal TotalVAT
+        public decimal TotalVat
         {
-            get { return _rateVAT * Total / 100; }
+            get { return _rateVat * Total / 100; }
         }
 
         /// <summary>
         /// Получает сумму с НДС по записи накладной
         /// </summary>
-        public decimal TotalWithVAT
+        public decimal TotalWithVat
         {
-            get { return Total + TotalVAT; }
+            get { return Total + TotalVat; }
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Practicum_1.Domain
         /// </summary>
         /// <param name="value">Ставка НДС</param>
         /// <returns>Истина, если аргумент является корректной ставкой НДС</returns>
-        public static bool IsValidRateVAT(decimal value)
+        public static bool IsValidRateVat(decimal value)
         {
             return value > 0.0M;
         }

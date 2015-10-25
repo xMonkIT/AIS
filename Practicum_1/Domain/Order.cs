@@ -75,12 +75,12 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает сумму с НДС по накладной
         /// </summary>
-        public decimal TotalWithVAT
+        public decimal TotalWithVat
         {
             get
             {
                 Contract.Requires(OrderItems != null, "Коллекция записей накладной должна быть создана.");
-                return OrderItems.Sum(x => x.TotalWithVAT);
+                return OrderItems.Sum(x => x.TotalWithVat);
             }
         }
 
