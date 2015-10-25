@@ -10,7 +10,7 @@ namespace Practicum_1
     {
         private readonly OrderRepository _orderRepository = new OrderRepository();
 
-        private IList<Specification> _specifications { get; } = new List<Specification>
+        private IList<Specification> Specifications { get; } = new List<Specification>
             (new[]
             {
                 new Specification("Хлеб"),
@@ -18,6 +18,14 @@ namespace Practicum_1
                 new Specification("Колбаса"),
                 new Specification("Чебурек")
             });
+
+        private IList<Vat> Vats { get; } = new List<Vat>(
+            new[]
+            {
+                Vat.GetVatObject(VatType.WithoutVat),
+                Vat.GetVatObject(VatType.ExcludingVat),
+                Vat.GetVatObject(VatType.IncludingVat)
+            }); 
 
         public OrderGenMainForm()
         {
@@ -32,7 +40,8 @@ namespace Practicum_1
             orderBindingSource.DataSource = _orderRepository.Orders;
             orderBindingSource.AddingNew += (obj, args) => args.NewObject = _orderRepository.New();
             orderBindingSource.AddNew();
-            specificationBindingSource.DataSource = _specifications;
+            specificationBindingSource.DataSource = Specifications;
+            vatBindingSource.DataSource = Vats;
         }
 
         private void orderBindingSource_CurrentChanged(object sender, EventArgs e)

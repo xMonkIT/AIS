@@ -32,8 +32,6 @@ namespace Practicum_1.Domain
                 if (_price == value) return;
                 _price = value;
                 OnPropertyChanged(nameof(Total));
-                OnPropertyChanged(nameof(TotalVat));
-                OnPropertyChanged(nameof(TotalWithVat));
                 
             }
         }
@@ -51,8 +49,6 @@ namespace Practicum_1.Domain
                 if (_count == value) return;
                 _count = value;
                 OnPropertyChanged(nameof(Total));
-                OnPropertyChanged(nameof(TotalVat));
-                OnPropertyChanged(nameof(TotalWithVat));
             }
         }
 
@@ -73,25 +69,8 @@ namespace Practicum_1.Domain
                 Contract.Ensures(_rateVat == value);
                 if (_rateVat == value) return;
                 _rateVat = value;
-                OnPropertyChanged(nameof(TotalVat));
-                OnPropertyChanged(nameof(TotalWithVat));
+                OnPropertyChanged();
             }
-        }
-
-        /// <summary>
-        /// Получает сумму НДС в записи накладной
-        /// </summary>
-        public decimal TotalVat
-        {
-            get { return _rateVat * Total / 100; }
-        }
-
-        /// <summary>
-        /// Получает сумму с НДС по записи накладной
-        /// </summary>
-        public decimal TotalWithVat
-        {
-            get { return Total + TotalVat; }
         }
 
         /// <summary>

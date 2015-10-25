@@ -11,6 +11,8 @@ namespace Practicum_1.Domain
     internal class Order : INotifyPropertyChanged
     {
         private int _id;
+        private Vat _vat;
+        private DateTime _created;
 
         /// <summary>
         /// Создаёт новый экземпляр накладной
@@ -19,6 +21,7 @@ namespace Practicum_1.Domain
         public Order(int id) {
             _id = id;
             Created = DateTime.Today;
+            Vat = Vat.GetVatObject(VatType.WithoutVat);
         }
 
         public Order() : this(1) { }
@@ -39,6 +42,7 @@ namespace Practicum_1.Domain
         private void ItemChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(nameof(Total));
+            OnPropertyChanged(nameof(TotalWithVat));
         }
 
         /// <summary>
@@ -58,7 +62,21 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает или устанавливает дату создания накладной
         /// </summary>
-        public DateTime Created { get; set; }
+        public DateTime Created
+        {
+            get { return _created; }
+            set { _created = value; }
+        }
+
+        public Vat Vat
+        {
+            get { return _vat; }
+            set
+            {
+                _vat = value;
+                OnPropertyChanged(nameof(TotalWithVat));
+            }
+        }
 
         /// <summary>
         /// Получает сумму по накладной
@@ -80,7 +98,7 @@ namespace Practicum_1.Domain
             get
             {
                 Contract.Requires(OrderItems != null, "Коллекция записей накладной должна быть создана.");
-                return OrderItems.Sum(x => x.TotalWithVat);
+                return OrderItems.Sum(x => Vat.GetPriceWithVat(x.Total, x.RateVat));
             }
         }
 
