@@ -25,7 +25,7 @@ namespace Practicum_1
                 Vat.GetVatObject(VatType.WithoutVat),
                 Vat.GetVatObject(VatType.ExcludingVat),
                 Vat.GetVatObject(VatType.IncludingVat)
-            }); 
+            });
 
         public OrderGenMainForm()
         {
@@ -54,6 +54,11 @@ namespace Practicum_1
         private void bClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void bCreateReport_Click(object sender, EventArgs e)
+        {
+            new ReportForm(_orderRepository).Show();
         }
     }
 }

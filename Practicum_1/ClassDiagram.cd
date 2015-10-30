@@ -4,18 +4,14 @@
     <Position X="3" Y="0.5" Width="1.5" />
     <Members>
       <Field Name="_id" Hidden="true" />
-      <Field Name="_orderItems" Hidden="true" />
       <Method Name="Clear" Hidden="true" />
       <Method Name="IsValidId" Hidden="true" />
       <Method Name="Order" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAEAAAQAIABAAAAAgAAAQAQAAAAAAQRAAAA=</HashCode>
+      <HashCode>AAACAAAAAAGAACAQIABIAAgAgAAAQgQAAAAAAQBAAAA=</HashCode>
       <FileName>Domain\Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_orderItems" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="OrderItems" />
     </ShowAsCollectionAssociation>
@@ -27,45 +23,44 @@
       <Field Name="_count" Hidden="true" />
       <Field Name="_price" Hidden="true" />
       <Field Name="_rateVat" Hidden="true" />
-      <Field Name="_specification" Hidden="true" />
       <Method Name="IsValidCount" Hidden="true" />
       <Method Name="IsValidPrice" Hidden="true" />
       <Method Name="IsValidRateVat" Hidden="true" />
     </Members>
+    <NestedTypes>
+      <Delegate Name="Practicum_1.Domain.OrderItem.OrderItemToInt" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Domain\OrderItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AoAAAAAICQCAABQAIEAAAAQAgAAAQCAAAQCAAAAgAAA=</HashCode>
+      <HashCode>A4AAAAAACQAAABAAIEAAAAQAgAABYAAAAACAAAAAAAI=</HashCode>
       <FileName>Domain\OrderItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_specification" />
       <Property Name="Specification" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Practicum_1.Domain.OrderRepository">
     <Position X="0.5" Y="0.5" Width="1.5" />
-    <Members>
-      <Field Name="_orders" Hidden="true" />
-    </Members>
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAABA=</HashCode>
       <FileName>Domain\OrderRepository.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_orders" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Orders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Practicum_1.Domain.Specification">
-    <Position X="3.5" Y="4.25" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <Members>
       <Field Name="_name" Hidden="true" />
       <Method Name="IsValidName" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAACAAAAEAAAAAAQgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Specification.cs</FileName>
     </TypeIdentifier>
   </Class>
