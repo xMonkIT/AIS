@@ -14,6 +14,10 @@ namespace Practicum_1.Domain
         private Vat _vat;
         private DateTime _created;
 
+        public delegate void Update();
+
+        public event Update OnVatChange;
+
         /// <summary>
         /// Создаёт новый экземпляр накладной
         /// </summary>
@@ -31,13 +35,14 @@ namespace Practicum_1.Domain
             var item = new OrderItem();
             item.PropertyChanged += ItemChanged;
             item.OnGetIndex += GetIndex;
+            item.OnGetVat += GetVat;
+            OnVatChange += item.Update;
             return item;
         }
 
-        private int GetIndex(OrderItem item)
-        {
-            return OrderItems.IndexOf(item);
-        }
+        private int GetIndex(OrderItem item) => OrderItems.IndexOf(item);
+
+        private Vat GetVat() => _vat;
 
         private void ItemChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -75,6 +80,7 @@ namespace Practicum_1.Domain
             {
                 _vat = value;
                 OnPropertyChanged(nameof(TotalWithVat));
+                OnVatChange?.Invoke();
             }
         }
 
@@ -98,7 +104,7 @@ namespace Practicum_1.Domain
             get
             {
                 Contract.Requires(OrderItems != null, "Коллекция записей накладной должна быть создана.");
-                return OrderItems.Sum(x => Vat.GetPriceWithVat(x.Total, x.RateVat));
+                return OrderItems.Sum(x => x.TotalWithVat);
             }
         }
 

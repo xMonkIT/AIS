@@ -12,7 +12,14 @@ namespace Practicum_1.Domain
         private decimal _rateVat;
 
         public delegate int OrderItemToInt(OrderItem item);
+
+        public delegate Vat ToVat();
+
         public event OrderItemToInt OnGetIndex;
+
+        public event ToVat OnGetVat;
+
+        public void Update() => OnPropertyChanged(nameof(TotalWithVat));
 
         /// <summary>
         /// Получает спецификацию товара в записи накладной
@@ -32,7 +39,8 @@ namespace Practicum_1.Domain
                 if (_price == value) return;
                 _price = value;
                 OnPropertyChanged(nameof(Total));
-                
+                OnPropertyChanged(nameof(TotalWithVat));
+
             }
         }
 
@@ -49,6 +57,7 @@ namespace Practicum_1.Domain
                 if (_count == value) return;
                 _count = value;
                 OnPropertyChanged(nameof(Total));
+                OnPropertyChanged(nameof(TotalWithVat));
             }
         }
 
@@ -69,9 +78,14 @@ namespace Practicum_1.Domain
                 Contract.Ensures(_rateVat == value);
                 if (_rateVat == value) return;
                 _rateVat = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(TotalWithVat));
             }
         }
+
+        /// <summary>
+        /// Получает сумму с НДС по записи в накладной
+        /// </summary>
+        public decimal TotalWithVat => _count * (OnGetVat?.Invoke().GetPriceWithVat(_price, _rateVat) ?? _price);
 
         /// <summary>
         /// Возвращает признак того, что аргумент является корректной ценой
