@@ -32,21 +32,28 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderGenMainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderGenMainForm));
+            this.tlpOrder = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbVatType = new System.Windows.Forms.ComboBox();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
-            this.tbOrderName = new System.Windows.Forms.TextBox();
+            this.tbOrderNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvOrderItems = new System.Windows.Forms.DataGridView();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specificationDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.specificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rateVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фыав = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bnOrderItems = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -64,8 +71,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbOrderTotal = new System.Windows.Forms.TextBox();
             this.tbOrderTotalWithVat = new System.Windows.Forms.TextBox();
-            this.bClose = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.bConductAccounting = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.bnOrder = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
@@ -81,14 +88,7 @@
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.bCreateReport = new System.Windows.Forms.ToolStripButton();
             this.orderRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rateVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фыав = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpOrder.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatBindingSource)).BeginInit();
@@ -105,29 +105,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderRepositoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpOrder
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 30);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(909, 439);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpOrder.AutoSize = true;
+            this.tlpOrder.ColumnCount = 1;
+            this.tlpOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOrder.Controls.Add(this.panel1, 0, 0);
+            this.tlpOrder.Controls.Add(this.groupBox1, 0, 1);
+            this.tlpOrder.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tlpOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpOrder.Location = new System.Drawing.Point(3, 30);
+            this.tlpOrder.Name = "tlpOrder";
+            this.tlpOrder.RowCount = 3;
+            this.tlpOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tlpOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpOrder.Size = new System.Drawing.Size(909, 439);
+            this.tlpOrder.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbVatType);
             this.panel1.Controls.Add(this.dtpOrderDate);
-            this.panel1.Controls.Add(this.tbOrderName);
+            this.panel1.Controls.Add(this.tbOrderNumber);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -137,17 +137,17 @@
             this.panel1.Size = new System.Drawing.Size(903, 84);
             this.panel1.TabIndex = 0;
             // 
-            // comboBox1
+            // cbVatType
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.orderBindingSource, "Vat", true));
-            this.comboBox1.DataSource = this.vatBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.ValueMember = "GetThis";
+            this.cbVatType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.orderBindingSource, "Vat", true));
+            this.cbVatType.DataSource = this.vatBindingSource;
+            this.cbVatType.DisplayMember = "Name";
+            this.cbVatType.FormattingEnabled = true;
+            this.cbVatType.Location = new System.Drawing.Point(113, 56);
+            this.cbVatType.Name = "cbVatType";
+            this.cbVatType.Size = new System.Drawing.Size(121, 21);
+            this.cbVatType.TabIndex = 4;
+            this.cbVatType.ValueMember = "GetThis";
             // 
             // orderBindingSource
             // 
@@ -166,13 +166,13 @@
             this.dtpOrderDate.Size = new System.Drawing.Size(200, 20);
             this.dtpOrderDate.TabIndex = 3;
             // 
-            // tbOrderName
+            // tbOrderNumber
             // 
-            this.tbOrderName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Id", true));
-            this.tbOrderName.Location = new System.Drawing.Point(113, 3);
-            this.tbOrderName.Name = "tbOrderName";
-            this.tbOrderName.Size = new System.Drawing.Size(100, 20);
-            this.tbOrderName.TabIndex = 2;
+            this.tbOrderNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Id", true));
+            this.tbOrderNumber.Location = new System.Drawing.Point(113, 3);
+            this.tbOrderNumber.Name = "tbOrderNumber";
+            this.tbOrderNumber.Size = new System.Drawing.Size(100, 20);
+            this.tbOrderNumber.TabIndex = 2;
             // 
             // label4
             // 
@@ -262,14 +262,74 @@
             this.dgvOrderItems.Size = new System.Drawing.Size(897, 259);
             this.dgvOrderItems.TabIndex = 1;
             // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.numberDataGridViewTextBoxColumn.HeaderText = "№";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // specificationDataGridViewComboBoxColumn
+            // 
+            this.specificationDataGridViewComboBoxColumn.DataPropertyName = "Specification";
+            this.specificationDataGridViewComboBoxColumn.DataSource = this.specificationBindingSource;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specificationDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.specificationDataGridViewComboBoxColumn.DisplayMember = "Name";
+            this.specificationDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.specificationDataGridViewComboBoxColumn.FillWeight = 64.70071F;
+            this.specificationDataGridViewComboBoxColumn.HeaderText = "Наименование";
+            this.specificationDataGridViewComboBoxColumn.Name = "specificationDataGridViewComboBoxColumn";
+            this.specificationDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.specificationDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.specificationDataGridViewComboBoxColumn.ValueMember = "GetThis";
+            // 
             // specificationBindingSource
             // 
             this.specificationBindingSource.DataSource = typeof(Practicum_1.Domain.Specification);
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // rateVatDataGridViewTextBoxColumn
+            // 
+            this.rateVatDataGridViewTextBoxColumn.DataPropertyName = "RateVat";
+            this.rateVatDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.rateVatDataGridViewTextBoxColumn.HeaderText = "Ставка НДС";
+            this.rateVatDataGridViewTextBoxColumn.Name = "rateVatDataGridViewTextBoxColumn";
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // фыав
+            // 
+            this.фыав.DataPropertyName = "TotalWithVat";
+            this.фыав.HeaderText = "Сумма с НДС";
+            this.фыав.Name = "фыав";
+            this.фыав.ReadOnly = true;
             // 
             // orderItemBindingSource
             // 
             this.orderItemBindingSource.AllowNew = true;
             this.orderItemBindingSource.DataSource = typeof(Practicum_1.Domain.OrderItem);
+            this.orderItemBindingSource.CurrentChanged += new System.EventHandler(this.orderItemBindingSource_CurrentChanged);
             // 
             // bnOrderItems
             // 
@@ -392,12 +452,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbOrderTotal, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbOrderTotalWithVat, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.bClose, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.bConductAccounting, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 402);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -423,44 +483,45 @@
             this.tbOrderTotal.Enabled = false;
             this.tbOrderTotal.Location = new System.Drawing.Point(163, 3);
             this.tbOrderTotal.Name = "tbOrderTotal";
-            this.tbOrderTotal.Size = new System.Drawing.Size(230, 20);
+            this.tbOrderTotal.Size = new System.Drawing.Size(205, 20);
             this.tbOrderTotal.TabIndex = 2;
             // 
             // tbOrderTotalWithVat
             // 
-            this.tbOrderTotalWithVat.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "TotalWithVat", true));
+            this.tbOrderTotalWithVat.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "TotalWithVat", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.tbOrderTotalWithVat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbOrderTotalWithVat.Enabled = false;
-            this.tbOrderTotalWithVat.Location = new System.Drawing.Point(599, 3);
+            this.tbOrderTotalWithVat.Location = new System.Drawing.Point(574, 3);
             this.tbOrderTotalWithVat.Name = "tbOrderTotalWithVat";
-            this.tbOrderTotalWithVat.Size = new System.Drawing.Size(230, 20);
+            this.tbOrderTotalWithVat.Size = new System.Drawing.Size(205, 20);
             this.tbOrderTotalWithVat.TabIndex = 2;
-            // 
-            // bClose
-            // 
-            this.bClose.Location = new System.Drawing.Point(835, 3);
-            this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(64, 23);
-            this.bClose.TabIndex = 1;
-            this.bClose.Text = "Закрыть";
-            this.bClose.UseVisualStyleBackColor = true;
-            this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(399, 0);
+            this.label5.Location = new System.Drawing.Point(374, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Сумма по накладной с НДС:";
             // 
+            // bConductAccounting
+            // 
+            this.bConductAccounting.AutoSize = true;
+            this.bConductAccounting.Location = new System.Drawing.Point(785, 3);
+            this.bConductAccounting.Name = "bConductAccounting";
+            this.bConductAccounting.Size = new System.Drawing.Size(115, 23);
+            this.bConductAccounting.TabIndex = 1;
+            this.bConductAccounting.Text = "Провести проводку";
+            this.bConductAccounting.UseVisualStyleBackColor = true;
+            this.bConductAccounting.Click += new System.EventHandler(this.bConductAccounting_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tlpOrder, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.bnOrder, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
@@ -601,65 +662,6 @@
             // 
             this.orderRepositoryBindingSource.DataSource = typeof(Practicum_1.Domain.OrderRepository);
             // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.numberDataGridViewTextBoxColumn.HeaderText = "№";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // specificationDataGridViewComboBoxColumn
-            // 
-            this.specificationDataGridViewComboBoxColumn.DataPropertyName = "Specification";
-            this.specificationDataGridViewComboBoxColumn.DataSource = this.specificationBindingSource;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specificationDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.specificationDataGridViewComboBoxColumn.DisplayMember = "Name";
-            this.specificationDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.specificationDataGridViewComboBoxColumn.FillWeight = 64.70071F;
-            this.specificationDataGridViewComboBoxColumn.HeaderText = "Наименование";
-            this.specificationDataGridViewComboBoxColumn.Name = "specificationDataGridViewComboBoxColumn";
-            this.specificationDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.specificationDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.specificationDataGridViewComboBoxColumn.ValueMember = "GetThis";
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // rateVatDataGridViewTextBoxColumn
-            // 
-            this.rateVatDataGridViewTextBoxColumn.DataPropertyName = "RateVat";
-            this.rateVatDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.rateVatDataGridViewTextBoxColumn.HeaderText = "Ставка НДС";
-            this.rateVatDataGridViewTextBoxColumn.Name = "rateVatDataGridViewTextBoxColumn";
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // фыав
-            // 
-            this.фыав.DataPropertyName = "TotalWithVat";
-            this.фыав.HeaderText = "Сумма с НДС";
-            this.фыав.Name = "фыав";
-            this.фыав.ReadOnly = true;
-            // 
             // OrderGenMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,7 +671,7 @@
             this.Name = "OrderGenMainForm";
             this.Text = "Формирование накладной";
             this.Load += new System.EventHandler(this.OrderGenMainForm_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tlpOrder.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
@@ -696,10 +698,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpOrder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dtpOrderDate;
-        private System.Windows.Forms.TextBox tbOrderName;
+        private System.Windows.Forms.TextBox tbOrderNumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -718,7 +720,7 @@
         private System.Windows.Forms.DataGridView dgvOrderItems;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bClose;
+        private System.Windows.Forms.Button bConductAccounting;
         private System.Windows.Forms.TextBox tbOrderTotal;
         private System.Windows.Forms.BindingSource orderItemBindingSource;
         private System.Windows.Forms.BindingSource orderBindingSource;
@@ -740,7 +742,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalVatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalWithVatDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vatBindingSource;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbVatType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbOrderTotalWithVat;
         private System.Windows.Forms.Label label5;

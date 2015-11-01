@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
 using Practicum_1.Domain;
@@ -10,8 +11,8 @@ namespace Practicum_1
     {
         private readonly OrderRepository _orderRepository = new OrderRepository();
 
-        private IList<Specification> Specifications { get; } = new List<Specification>
-            (new[]
+        private IList<Specification> Specifications { get; } = new List<Specification>(
+            new[]
             {
                 new Specification("Хлеб"),
                 new Specification("Молоко"),
@@ -49,16 +50,44 @@ namespace Practicum_1
             Contract.Ensures(Equals(orderItemBindingSource.DataSource, (orderBindingSource.Current as Order).OrderItems));
             orderItemBindingSource.DataSource = (orderBindingSource.Current as Order)?.OrderItems;
             orderItemBindingSource.AddingNew += (obj, args) => args.NewObject = (orderBindingSource.Current as Order)?.New();
+            SetStateOfOrderControls();
         }
 
-        private void bClose_Click(object sender, EventArgs e)
+        private void SetStateOfOrderControls()
         {
-            Close();
+            var orderControls = new List<Control>(
+                new Control[]
+                {
+                    tbOrderNumber,
+                    dtpOrderDate,
+                    cbVatType,
+                    bnOrderItems,
+                    dgvOrderItems,
+                    bConductAccounting
+                });
+            var canEdit = (orderBindingSource.Current as Order)?.CanEdit;
+            if (canEdit == null) return;
+            orderControls.ForEach(x => x.Enabled = (bool) canEdit);
+            SetStateOfAccountingButton();
+        }
+
+        private void bConductAccounting_Click(object sender, EventArgs e)
+        {
+            var accountingDialog = new AccountingDialog();
+            if (accountingDialog.ShowDialog() != DialogResult.OK) return;
+            var order = orderBindingSource.Current as Order;
+            if (order != null)
+                order.Accounting = accountingDialog.Accounting;
+            SetStateOfOrderControls();
         }
 
         private void bCreateReport_Click(object sender, EventArgs e)
         {
             new ReportForm(_orderRepository).Show();
         }
+
+        private void SetStateOfAccountingButton() => bConductAccounting.Enabled = orderItemBindingSource.Count != 0;
+
+        private void orderItemBindingSource_CurrentChanged(object sender, EventArgs e) => SetStateOfAccountingButton();
     }
 }

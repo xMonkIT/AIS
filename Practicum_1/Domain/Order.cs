@@ -130,6 +130,25 @@ namespace Practicum_1.Domain
             OrderItems.Clear();
         }
 
+        #region Accounting
+
+        /// <summary>
+        /// Получает или задает объект проводки, связанной с накладной
+        /// </summary>
+        public Accounting Accounting { get; set; }
+
+        /// <summary>
+        /// Получает сумму проводки
+        /// </summary>
+        public decimal AccountingSum => Accounting != null ? Total : 0M;
+
+        /// <summary>
+        /// Получает признак возможности внесения изменений в данные накладной
+        /// </summary>
+        public bool CanEdit => Accounting == null;
+
+        #endregion
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

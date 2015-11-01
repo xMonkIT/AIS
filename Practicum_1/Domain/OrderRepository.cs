@@ -17,6 +17,11 @@ namespace Practicum_1.Domain
         /// </summary>
         public decimal Total => Orders.Sum(x => x.Total);
 
+        /// <summary>
+        /// Получает сумму проводок по всем накладным
+        /// </summary>
+        public decimal TotalAccountingSum => Orders.Sum(x => x.AccountingSum);
+
         public Order New() => new Order(++_nextOrderId);
     }
 }

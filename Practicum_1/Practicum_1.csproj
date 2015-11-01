@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingDialog.Designer.cs">
+      <DependentUpon>AccountingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting.cs" />
     <Compile Include="Domain\Order.cs" />
     <Compile Include="Domain\OrderItem.cs" />
     <Compile Include="Domain\OrderRepository.cs" />
@@ -68,6 +75,9 @@
     <Compile Include="Report\ReportBuilder.cs" />
     <Compile Include="Report\ReportByComing.cs" />
     <Compile Include="Report\SpecificationsGroup.cs" />
+    <EmbeddedResource Include="AccountingDialog.resx">
+      <DependentUpon>AccountingDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderGenMainForm.resx">
       <DependentUpon>OrderGenMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +94,7 @@
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
+    <None Include="Properties\DataSources\Practicum_1.Domain.Accounting.datasource" />
     <None Include="Properties\DataSources\Practicum_1.Domain.Order.datasource" />
     <None Include="Properties\DataSources\Practicum_1.Domain.OrderItem.datasource" />
     <None Include="Properties\DataSources\Practicum_1.Domain.OrderRepository.datasource" />
