@@ -22,12 +22,12 @@ namespace Practicum_1.Domain
         public void Update() => OnPropertyChanged(nameof(TotalWithVat));
 
         /// <summary>
-        /// Получает спецификацию товара в записи накладной
+        /// Получает и задаёт спецификацию товара в записи накладной
         /// </summary>
         public Product Product { get; set; }
 
         /// <summary>
-        /// Получает цену за единицу товара в записи накладной
+        /// Получает и задаёт цену за единицу товара в записи накладной
         /// </summary>
         public decimal Price
         {
@@ -45,7 +45,7 @@ namespace Practicum_1.Domain
         }
 
         /// <summary>
-        /// Получает количество единиц товара в записи накладной
+        /// Получает и задаёт количество единиц товара в записи накладной
         /// </summary>
         public decimal Count
         {
@@ -67,7 +67,7 @@ namespace Practicum_1.Domain
         public decimal Total => _count * _price;
 
         /// <summary>
-        /// Получает ставку НДС в записи накладной
+        /// Получает и задаёт ставку НДС в записи накладной
         /// </summary>
         public decimal RateVat
         {
@@ -85,7 +85,7 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает сумму с НДС по записи в накладной
         /// </summary>
-        public decimal TotalWithVat => _count * (OnGetVat?.Invoke().GetPriceWithVat(_price, _rateVat) ?? _price);
+        public decimal TotalWithVat => _count * (OnGetVat?.Invoke()?.GetPriceWithVat(_price, _rateVat) ?? _price);
 
         /// <summary>
         /// Возвращает признак того, что аргумент является корректной ценой

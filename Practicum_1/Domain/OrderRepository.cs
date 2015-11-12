@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Practicum_1.Domain
 {
-    class OrderRepository
+    public class OrderRepository
     {
         private int _nextOrderId;
 

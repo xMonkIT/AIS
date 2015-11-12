@@ -10,6 +10,7 @@ namespace Practicum_1
     public partial class OrderGenMainForm : Form
     {
         private readonly OrderRepository _orderRepository = new OrderRepository();
+        private readonly Random _rand = new Random();
 
         private IList<Product> Products { get; }
 
@@ -26,6 +27,26 @@ namespace Practicum_1
             Vat.GetVatObject(VatType.IncludingVat)
         };
 
+        private void AddNewOrderItem(Order order)
+        {
+            var orderItem = order.New();
+            orderItem.Product = Products[_rand.Next(Products.Count)];
+            orderItem.Count = _rand.Next(1, 100);
+            orderItem.Price = _rand.Next(100);
+            orderItem.RateVat = _rand.Next(30);
+            order.OrderItems.Add(orderItem);
+        }
+
+        private void AddNewOrder(OrderRepository orderRepository)
+        {
+            var order = orderRepository.New();
+            order.Accounting = _rand.Next()%2 == 0 ? new Accounting() : null;
+            order.Created = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - _rand.Next(7));
+            order.Vat = Vats[_rand.Next(Vats.Count)];
+            for (int i = 0; i < _rand.Next(3, 20); i++) AddNewOrderItem(order);
+            orderRepository.Orders.Add(order);
+        }
+
         public OrderGenMainForm()
         {
             InitializeComponent();
@@ -38,6 +59,7 @@ namespace Practicum_1
                 new Product("Колбаса", food),
                 new Product("Чебурек", notFood)
             };
+            for (int i = 0; i < _rand.Next(3, 10); i++) AddNewOrder(_orderRepository);
         }
 
         public OrderGenMainForm(Order order, IList<Product> products)
@@ -58,7 +80,6 @@ namespace Practicum_1
             orderRepositoryBindingSource.DataSource = _orderRepository;
             orderBindingSource.DataSource = _orderRepository.Orders;
             orderBindingSource.AddingNew += (obj, args) => args.NewObject = _orderRepository.New();
-            orderBindingSource.AddNew();
             productBindingSource.DataSource = Products;
             vatBindingSource.DataSource = Vats;
         }
