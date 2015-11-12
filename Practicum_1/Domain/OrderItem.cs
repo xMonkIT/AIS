@@ -24,7 +24,7 @@ namespace Practicum_1.Domain
         /// <summary>
         /// Получает спецификацию товара в записи накладной
         /// </summary>
-        public Specification Specification { get; set; }
+        public Product Product { get; set; }
 
         /// <summary>
         /// Получает цену за единицу товара в записи накладной

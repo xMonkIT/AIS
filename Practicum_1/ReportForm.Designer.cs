@@ -42,16 +42,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.dgvReport = new System.Windows.Forms.DataGridView();
-            this.specificationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationsGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportByComingBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.specificationsGroupBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGroupBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -184,10 +184,10 @@
             this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.specificationDataGridViewTextBoxColumn,
+            this.productDataGridViewTextBoxColumn,
             this.countDataGridViewTextBoxColumn,
             this.totalDataGridViewTextBoxColumn});
-            this.dgvReport.DataSource = this.specificationsGroupBindingSource;
+            this.dgvReport.DataSource = this.productsGroupBindingSource;
             this.dgvReport.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvReport.Location = new System.Drawing.Point(3, 103);
             this.dgvReport.Name = "dgvReport";
@@ -196,12 +196,12 @@
             this.dgvReport.Size = new System.Drawing.Size(605, 188);
             this.dgvReport.TabIndex = 2;
             // 
-            // specificationDataGridViewTextBoxColumn
+            // productDataGridViewTextBoxColumn
             // 
-            this.specificationDataGridViewTextBoxColumn.DataPropertyName = "Specification";
-            this.specificationDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.specificationDataGridViewTextBoxColumn.Name = "specificationDataGridViewTextBoxColumn";
-            this.specificationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countDataGridViewTextBoxColumn
             // 
@@ -217,9 +217,9 @@
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // specificationsGroupBindingSource
+            // productsGroupBindingSource
             // 
-            this.specificationsGroupBindingSource.DataSource = typeof(Practicum_1.Report.SpecificationsGroup);
+            this.productsGroupBindingSource.DataSource = typeof(Practicum_1.Report.ProductsGroup);
             // 
             // ReportForm
             // 
@@ -237,7 +237,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.specificationsGroupBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGroupBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,9 +257,9 @@
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.DataGridView dgvReport;
         private System.Windows.Forms.BindingSource reportByComingBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specificationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource specificationsGroupBindingSource;
+        private System.Windows.Forms.BindingSource productsGroupBindingSource;
     }
 }

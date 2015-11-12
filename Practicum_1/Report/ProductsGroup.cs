@@ -2,23 +2,23 @@
 
 namespace Practicum_1.Report
 {
-    internal class SpecificationsGroup
+    internal class ProductsGroup
     {
         private readonly decimal _total;
         private readonly decimal _count;
-        private readonly Specification _specification;
+        private readonly Product _product;
 
-        public SpecificationsGroup(Specification specification, decimal total, decimal count)
+        public ProductsGroup(Product product, decimal total, decimal count)
         {
             _total = total;
             _count = count;
-            _specification = specification;
+            _product = product;
         }
 
         public decimal Total => _total;
 
         public decimal Count => _count;
 
-        public Specification Specification => _specification;
+        public Product Product => _product;
     }
 }

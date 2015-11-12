@@ -9,13 +9,13 @@ namespace Practicum_1.Report
         private readonly DateTime _beginDate;
         private readonly DateTime _endDate;
         private readonly DateTime _createDate;
-        private readonly IList<SpecificationsGroup> _specificationsGroups;
+        private readonly IList<ProductsGroup> _productsGroups;
 
-        public ReportByComing(DateTime beginDate, DateTime endDate, IList<SpecificationsGroup> specificationsGroups)
+        public ReportByComing(DateTime beginDate, DateTime endDate, IList<ProductsGroup> productsGroups)
         {
             _beginDate = beginDate;
             _endDate = endDate;
-            _specificationsGroups = specificationsGroups;
+            _productsGroups = productsGroups;
             _createDate = DateTime.Now;
         }
 
@@ -23,10 +23,10 @@ namespace Practicum_1.Report
 
         public DateTime EndDate => _endDate;
 
-        public decimal Total => _specificationsGroups.Sum(x => x.Total);
+        public decimal Total => _productsGroups.Sum(x => x.Total);
 
         public DateTime CreateDate => _createDate;
 
-        public IList<SpecificationsGroup> SpecificationsGroups => _specificationsGroups;
+        public IList<ProductsGroup> ProductsGroups => _productsGroups;
     }
 }

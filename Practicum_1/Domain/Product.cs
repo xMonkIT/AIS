@@ -2,11 +2,11 @@
 
 namespace Practicum_1.Domain
 {
-    public class Specification
+    public class Product
     {
         private string _name;
 
-        public Specification(string name)
+        public Product(string name)
         {
             Name = name;
         }
@@ -22,7 +22,7 @@ namespace Practicum_1.Domain
             }
         }
 
-        public Specification GetThis => this;
+        public Product GetThis => this;
 
         /// <summary>
         /// Возвращает признак того, что аргумент является корректным названием спецификации

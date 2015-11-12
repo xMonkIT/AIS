@@ -11,13 +11,13 @@ namespace Practicum_1
     {
         private readonly OrderRepository _orderRepository = new OrderRepository();
 
-        private IList<Specification> Specifications { get; } = new List<Specification>(
+        private IList<Product> Products { get; } = new List<Product>(
             new[]
             {
-                new Specification("Хлеб"),
-                new Specification("Молоко"),
-                new Specification("Колбаса"),
-                new Specification("Чебурек")
+                new Product("Хлеб"),
+                new Product("Молоко"),
+                new Product("Колбаса"),
+                new Product("Чебурек")
             });
 
         private IList<Vat> Vats { get; } = new List<Vat>(
@@ -41,7 +41,7 @@ namespace Practicum_1
             orderBindingSource.DataSource = _orderRepository.Orders;
             orderBindingSource.AddingNew += (obj, args) => args.NewObject = _orderRepository.New();
             orderBindingSource.AddNew();
-            specificationBindingSource.DataSource = Specifications;
+            productBindingSource.DataSource = Products;
             vatBindingSource.DataSource = Vats;
         }
 

@@ -20,19 +20,19 @@ namespace Practicum_1.Report
                 .Where(order => order.Created.Date >= beginDate.Date && order.Created.Date <= endDate.Date)
                 .SelectMany(order => order.OrderItems)
                 .ToList();
-            var specificationsGroups =
-                new HashSet<Specification>(orderItems.Select(orderItem => orderItem.Specification))
+            var productsGroups =
+                new HashSet<Product>(orderItems.Select(orderItem => orderItem.Product))
                     .Select(
-                        specification => new SpecificationsGroup(
-                            specification,
+                        product => new ProductsGroup(
+                            product,
                             orderItems
-                                .Where(orderItem => orderItem.Specification == specification)
+                                .Where(orderItem => orderItem.Product == product)
                                 .Sum(orderItem => orderItem.Total),
                             orderItems
-                                .Where(orderItem => orderItem.Specification == specification)
+                                .Where(orderItem => orderItem.Product == product)
                                 .Sum(orderItem => orderItem.Count)))
                     .ToList();
-            return new ReportByComing(beginDate, endDate, specificationsGroups);
+            return new ReportByComing(beginDate, endDate, productsGroups);
         }
     }
 }

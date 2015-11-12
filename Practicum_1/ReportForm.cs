@@ -28,7 +28,7 @@ namespace Practicum_1
         {
             var report = _reportBuilder.CreateReportModel(dtpBeginDate.Value, dtpEndDate.Value);
             reportByComingBindingSource.DataSource = report;
-            specificationsGroupBindingSource.DataSource = report.SpecificationsGroups;
+            productsGroupBindingSource.DataSource = report.ProductsGroups;
         }
     }
 }
