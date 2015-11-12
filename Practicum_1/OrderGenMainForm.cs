@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Linq.Dynamic;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
 using Practicum_1.Domain;
@@ -89,5 +89,16 @@ namespace Practicum_1
         private void SetStateOfAccountingButton() => bConductAccounting.Enabled = orderItemBindingSource.Count != 0;
 
         private void orderItemBindingSource_CurrentChanged(object sender, EventArgs e) => SetStateOfAccountingButton();
+
+        private void dgvOrderItems_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var property = dgvOrderItems.Columns[e.ColumnIndex].DataPropertyName;
+            orderItemBindingSource.Sort = Equals(orderItemBindingSource.Sort, $"{property} ASC")
+                ? $"{property} DESC"
+                : $"{property} ASC";
+            var isDesc = orderItemBindingSource.Sort.EndsWith("DESC");
+            orderItemBindingSource.DataSource =
+                (orderBindingSource.Current as Order)?.OrderItems?.OrderBy($"{property}{(isDesc ? " descending" : "")}");
+        }
     }
 }

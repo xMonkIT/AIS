@@ -35,6 +35,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +98,7 @@
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Practicum_1.Domain.Accounting.datasource" />
     <None Include="Properties\DataSources\Practicum_1.Domain.Order.datasource" />
     <None Include="Properties\DataSources\Practicum_1.Domain.OrderItem.datasource" />

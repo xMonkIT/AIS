@@ -261,6 +261,7 @@
             this.dgvOrderItems.RowHeadersWidth = 50;
             this.dgvOrderItems.Size = new System.Drawing.Size(897, 259);
             this.dgvOrderItems.TabIndex = 1;
+            this.dgvOrderItems.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrderItems_ColumnHeaderMouseClick);
             // 
             // numberDataGridViewTextBoxColumn
             // 
@@ -276,18 +277,12 @@
             this.specificationDataGridViewComboBoxColumn.DataSource = this.specificationBindingSource;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.specificationDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.specificationDataGridViewComboBoxColumn.DisplayMember = "Name";
             this.specificationDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.specificationDataGridViewComboBoxColumn.FillWeight = 64.70071F;
             this.specificationDataGridViewComboBoxColumn.HeaderText = "Наименование";
             this.specificationDataGridViewComboBoxColumn.Name = "specificationDataGridViewComboBoxColumn";
             this.specificationDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.specificationDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.specificationDataGridViewComboBoxColumn.ValueMember = "GetThis";
-            // 
-            // specificationBindingSource
-            // 
-            this.specificationBindingSource.DataSource = typeof(Practicum_1.Domain.Specification);
             // 
             // countDataGridViewTextBoxColumn
             // 
