@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderGenMainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpOrder = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbVatType = new System.Windows.Forms.ComboBox();
@@ -46,12 +46,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvOrderItems = new System.Windows.Forms.DataGridView();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rateVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фыав = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bnOrderItems = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bnAddNewOrderItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bnDeleteOrderItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -66,7 +73,7 @@
             this.tbOrderTotalWithVat = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bConductAccounting = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpOrderRepository = new System.Windows.Forms.TableLayoutPanel();
             this.bnOrder = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
@@ -81,13 +88,6 @@
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.bCreateReport = new System.Windows.Forms.ToolStripButton();
             this.orderRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rateVatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фыав = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpOrder.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -99,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bnOrderItems)).BeginInit();
             this.bnOrderItems.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tlpOrderRepository.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnOrder)).BeginInit();
             this.bnOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderRepositoryBindingSource)).BeginInit();
@@ -220,14 +220,14 @@
             this.dgvOrderItems.AllowUserToOrderColumns = true;
             this.dgvOrderItems.AutoGenerateColumns = false;
             this.dgvOrderItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrderItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberDataGridViewTextBoxColumn,
@@ -238,34 +238,93 @@
             this.totalDataGridViewTextBoxColumn,
             this.фыав});
             this.dgvOrderItems.DataSource = this.orderItemBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderItems.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderItems.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOrderItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrderItems.Location = new System.Drawing.Point(3, 41);
             this.dgvOrderItems.Name = "dgvOrderItems";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrderItems.RowHeadersVisible = false;
             this.dgvOrderItems.RowHeadersWidth = 50;
             this.dgvOrderItems.Size = new System.Drawing.Size(897, 259);
             this.dgvOrderItems.TabIndex = 1;
             this.dgvOrderItems.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOrderItems_ColumnHeaderMouseClick);
             // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.numberDataGridViewTextBoxColumn.HeaderText = "№";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productDataGridViewComboBoxColumn
+            // 
+            this.productDataGridViewComboBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewComboBoxColumn.DataSource = this.productBindingSource;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.productDataGridViewComboBoxColumn.DisplayMember = "Name";
+            this.productDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.productDataGridViewComboBoxColumn.FillWeight = 64.70071F;
+            this.productDataGridViewComboBoxColumn.HeaderText = "Наименование";
+            this.productDataGridViewComboBoxColumn.Name = "productDataGridViewComboBoxColumn";
+            this.productDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.productDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.productDataGridViewComboBoxColumn.ValueMember = "GetThis";
+            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(Practicum_1.Domain.Product);
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // rateVatDataGridViewTextBoxColumn
+            // 
+            this.rateVatDataGridViewTextBoxColumn.DataPropertyName = "RateVat";
+            this.rateVatDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.rateVatDataGridViewTextBoxColumn.HeaderText = "Ставка НДС";
+            this.rateVatDataGridViewTextBoxColumn.Name = "rateVatDataGridViewTextBoxColumn";
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.FillWeight = 64.70071F;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // фыав
+            // 
+            this.фыав.DataPropertyName = "TotalWithVat";
+            this.фыав.HeaderText = "Сумма с НДС";
+            this.фыав.Name = "фыав";
+            this.фыав.ReadOnly = true;
             // 
             // orderItemBindingSource
             // 
@@ -275,10 +334,10 @@
             // 
             // bnOrderItems
             // 
-            this.bnOrderItems.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bnOrderItems.AddNewItem = this.bnAddNewOrderItem;
             this.bnOrderItems.BindingSource = this.orderItemBindingSource;
             this.bnOrderItems.CountItem = this.bindingNavigatorCountItem;
-            this.bnOrderItems.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bnOrderItems.DeleteItem = this.bnDeleteOrderItem;
             this.bnOrderItems.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -289,8 +348,8 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bnAddNewOrderItem,
+            this.bnDeleteOrderItem});
             this.bnOrderItems.Location = new System.Drawing.Point(3, 16);
             this.bnOrderItems.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnOrderItems.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -302,14 +361,14 @@
             this.bnOrderItems.TabIndex = 0;
             this.bnOrderItems.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
+            // bnAddNewOrderItem
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
+            this.bnAddNewOrderItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bnAddNewOrderItem.Image = ((System.Drawing.Image)(resources.GetObject("bnAddNewOrderItem.Image")));
+            this.bnAddNewOrderItem.Name = "bnAddNewOrderItem";
+            this.bnAddNewOrderItem.RightToLeftAutoMirrorImage = true;
+            this.bnAddNewOrderItem.Size = new System.Drawing.Size(23, 22);
+            this.bnAddNewOrderItem.Text = "Добавить";
             // 
             // bindingNavigatorCountItem
             // 
@@ -318,14 +377,14 @@
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
-            // bindingNavigatorDeleteItem
+            // bnDeleteOrderItem
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
+            this.bnDeleteOrderItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bnDeleteOrderItem.Image = ((System.Drawing.Image)(resources.GetObject("bnDeleteOrderItem.Image")));
+            this.bnDeleteOrderItem.Name = "bnDeleteOrderItem";
+            this.bnDeleteOrderItem.RightToLeftAutoMirrorImage = true;
+            this.bnDeleteOrderItem.Size = new System.Drawing.Size(23, 22);
+            this.bnDeleteOrderItem.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -459,20 +518,20 @@
             this.bConductAccounting.UseVisualStyleBackColor = true;
             this.bConductAccounting.Click += new System.EventHandler(this.bConductAccounting_Click);
             // 
-            // tableLayoutPanel3
+            // tlpOrderRepository
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.tlpOrder, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.bnOrder, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.932203F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.06779F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(915, 472);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tlpOrderRepository.ColumnCount = 1;
+            this.tlpOrderRepository.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpOrderRepository.Controls.Add(this.tlpOrder, 0, 1);
+            this.tlpOrderRepository.Controls.Add(this.bnOrder, 0, 0);
+            this.tlpOrderRepository.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpOrderRepository.Location = new System.Drawing.Point(0, 0);
+            this.tlpOrderRepository.Name = "tlpOrderRepository";
+            this.tlpOrderRepository.RowCount = 2;
+            this.tlpOrderRepository.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.932203F));
+            this.tlpOrderRepository.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.06779F));
+            this.tlpOrderRepository.Size = new System.Drawing.Size(915, 472);
+            this.tlpOrderRepository.TabIndex = 1;
             // 
             // bnOrder
             // 
@@ -604,71 +663,12 @@
             // 
             this.orderRepositoryBindingSource.DataSource = typeof(Practicum_1.Domain.OrderRepository);
             // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.numberDataGridViewTextBoxColumn.HeaderText = "№";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productDataGridViewComboBoxColumn
-            // 
-            this.productDataGridViewComboBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewComboBoxColumn.DataSource = this.productBindingSource;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.productDataGridViewComboBoxColumn.DisplayMember = "Name";
-            this.productDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.productDataGridViewComboBoxColumn.FillWeight = 64.70071F;
-            this.productDataGridViewComboBoxColumn.HeaderText = "Наименование";
-            this.productDataGridViewComboBoxColumn.Name = "productDataGridViewComboBoxColumn";
-            this.productDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.productDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.productDataGridViewComboBoxColumn.ValueMember = "GetThis";
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // rateVatDataGridViewTextBoxColumn
-            // 
-            this.rateVatDataGridViewTextBoxColumn.DataPropertyName = "RateVat";
-            this.rateVatDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.rateVatDataGridViewTextBoxColumn.HeaderText = "Ставка НДС";
-            this.rateVatDataGridViewTextBoxColumn.Name = "rateVatDataGridViewTextBoxColumn";
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.FillWeight = 64.70071F;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // фыав
-            // 
-            this.фыав.DataPropertyName = "TotalWithVat";
-            this.фыав.HeaderText = "Сумма с НДС";
-            this.фыав.Name = "фыав";
-            this.фыав.ReadOnly = true;
-            // 
             // OrderGenMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 472);
-            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.tlpOrderRepository);
             this.Name = "OrderGenMainForm";
             this.Text = "Формирование накладной";
             this.Load += new System.EventHandler(this.OrderGenMainForm_Load);
@@ -687,8 +687,8 @@
             this.bnOrderItems.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.tlpOrderRepository.ResumeLayout(false);
+            this.tlpOrderRepository.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnOrder)).EndInit();
             this.bnOrder.ResumeLayout(false);
             this.bnOrder.PerformLayout();
@@ -707,9 +707,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.BindingNavigator bnOrderItems;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripButton bnAddNewOrderItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bnDeleteOrderItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -725,7 +725,7 @@
         private System.Windows.Forms.TextBox tbOrderTotal;
         private System.Windows.Forms.BindingSource orderItemBindingSource;
         private System.Windows.Forms.BindingSource orderBindingSource;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tlpOrderRepository;
         private System.Windows.Forms.BindingNavigator bnOrder;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;

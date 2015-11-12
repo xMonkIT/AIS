@@ -5,7 +5,7 @@ namespace Practicum_1.Domain
     /// <summary>
     /// Бухгалтерская проводка
     /// </summary>
-    class Accounting
+    public class Accounting
     {
         /// <summary>
         /// Получает и задает дату проводки

@@ -8,7 +8,7 @@ using Practicum_1.Annotations;
 
 namespace Practicum_1.Domain
 {
-    internal class Order : INotifyPropertyChanged
+    public class Order : INotifyPropertyChanged
     {
         private int _id;
         private Vat _vat;

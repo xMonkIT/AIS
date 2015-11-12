@@ -2,14 +2,14 @@
 
 namespace Practicum_1.Domain
 {
-    enum VatType
+    public enum VatType
     {
         WithoutVat,
         ExcludingVat,
         IncludingVat
     }
 
-    class Vat
+    public class Vat
     {
         private class ExcludingVat : Vat
         {

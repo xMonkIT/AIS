@@ -60,6 +60,7 @@
     <Compile Include="Domain\OrderItem.cs" />
     <Compile Include="Domain\OrderRepository.cs" />
     <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\ProductsGroup.cs" />
     <Compile Include="Domain\Vat.cs" />
     <Compile Include="OrderGenMainForm.cs">
       <SubType>Form</SubType>

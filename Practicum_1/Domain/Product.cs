@@ -6,9 +6,10 @@ namespace Practicum_1.Domain
     {
         private string _name;
 
-        public Product(string name)
+        public Product(string name, ProductsGroup productsGroup)
         {
             Name = name;
+            ProductsGroup = productsGroup;
         }
 
         public string Name
@@ -21,6 +22,11 @@ namespace Practicum_1.Domain
                 _name = value;
             }
         }
+
+        /// <summary>
+        /// Возвращает группу товаров, к которой принадлежит товар
+        /// </summary>
+        public ProductsGroup ProductsGroup { get; }
 
         public Product GetThis => this;
 

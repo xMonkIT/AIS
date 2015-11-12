@@ -5,7 +5,7 @@ using Practicum_1.Annotations;
 
 namespace Practicum_1.Domain
 {
-    internal class OrderItem : INotifyPropertyChanged
+    public class OrderItem : INotifyPropertyChanged
     {
         private decimal _count;
         private decimal _price;
